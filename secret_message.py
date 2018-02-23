@@ -15,7 +15,7 @@ def encrypt_decrypt():
 
     while playing:
         #User input
-        cipher = int(input("Enter the number of cipher associated with: "))
+        cipher = int(input("Enter the number associated with cipher you wish to use: "))
         text = input("What is the message?: ")
         choice = input("Are you going to encrypt or decrypt? Enter E or D: ").lower()
         print("\n")
