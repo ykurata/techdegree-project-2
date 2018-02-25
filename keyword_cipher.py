@@ -5,7 +5,7 @@ class Keyword(Cipher):
         self.alpha = "abcdefghijklmnopqrstuvwxyz ".upper()
 
     def encrypt(self, text, secret_key):
-        """Takes text and secret_key and encrypts the text."""
+        """Takes text and secret_key and encrypts the text"""
 
         text = text.upper()
         secret_key = secret_key.upper()
@@ -25,12 +25,16 @@ class Keyword(Cipher):
 
         #Appends encrypted text into output
         for char in text:
-            index = self.alpha.index(char)
-            output.append(key[index])
+            try:
+                index = self.alpha.index(char)
+            except ValueError:
+                output.append(char)
+            else:
+                output.append(key[index])
         return "".join(output)
 
     def decrypt(self, text, secret_key):
-        """Takes text and secret_key and decrypts text."""
+        """Takes text and secret_key and decrypts text"""
 
         text = text.upper()
         secret_key = secret_key.upper()
@@ -50,6 +54,10 @@ class Keyword(Cipher):
 
         #Appends decrypted text into output
         for char in text:
-            index = key.index(char)
-            output.append(self.alpha[index])
+            try:
+                index = key.index(char)
+            except ValueError:
+                output.append(char)
+            else:
+                output.append(self.alpha[index])
         return "".join(output)
