@@ -2,6 +2,7 @@ import string
 
 from ciphers import Cipher
 
+
 class Affine(Cipher):
     def __init__(self):
         self.alpha = string.ascii_uppercase
@@ -26,6 +27,7 @@ class Affine(Cipher):
             else:
                 output.append(self.alpha[(index * 5 + 8) % 26])
         return "".join(output)
+
 
     def decrypt(self, text):
         """

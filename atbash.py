@@ -2,6 +2,7 @@ import string
 
 from ciphers import Cipher
 
+
 class Atbash(Cipher):
     def __init__(self):
         self.alpha = string.ascii_uppercase
@@ -27,6 +28,7 @@ class Atbash(Cipher):
             else:
                 output.append(self.reverse_alpha[index])
         return "".join(output)
+
 
     def decrypt(self, text):
         """

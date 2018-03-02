@@ -1,22 +1,12 @@
 from affine import Affine
 from atbash import Atbash
 from keyword_cipher import Keyword
-from caesar import Caesar
 
 #prints welcome messages
 def welcome():
-    message = """
-Welcome to the Secret Messages!
-
-These are the current available ciphers
-
-1. Affine
-2. Atbash
-3. Keyword
-4. Caesar
-
-Which cipher would you like to use?"""
-    print(message)
+    print("Welcome to the Secret Messages!\n\n")
+    print("These are the current available ciphers \n\n 1. Affine\n 2. Atbash\n 3. Keyword\n\n")
+    print("Which cipher would you like to use?")
 
 def encrypt_decrypt():
     """Encrypt or decrypt text."""
@@ -26,7 +16,7 @@ def encrypt_decrypt():
     while playing:
         #User input
         cipher = int(input("Enter the number associated with cipher you wish to use: "))
-        text = input("What is your message: ")
+        text = input("What is the message?: ")
         choice = input("Are you going to encrypt or decrypt? Enter E or D: ").lower()
         print("\n")
 
@@ -52,11 +42,6 @@ def encrypt_decrypt():
                 print(keyword.encrypt(text, secret_key))
                 playing = False
 
-            elif cipher == 4:
-                caesar = Caesar()
-                print(caesar.encrypt(text))
-                playing = False
-
         if choice == "d":
             #Decrypts affine cipher
             if cipher == 1:
@@ -78,11 +63,6 @@ def encrypt_decrypt():
                 print(keyword.decrypt(text, secret_key))
                 playing = False
 
-            elif cipher == 4:
-                caesar = Caesar()
-                print(caesar.decrypt(text))
-                playing = False
-
     #Asks user to play again or not
     else:
         if input("\nDo you want to contine? Y/N: ").lower() == "y":
@@ -90,7 +70,6 @@ def encrypt_decrypt():
             encrypt_decrypt()
         else:
             print("See you next time!")
-
 
 if __name__ == '__main__':
     welcome()

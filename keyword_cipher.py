@@ -4,6 +4,7 @@ class Keyword(Cipher):
     def __init__(self):
         self.alpha = "abcdefghijklmnopqrstuvwxyz ".upper()
 
+
     def encrypt(self, text, secret_key):
         """Takes text and secret_key and encrypts the text"""
 
@@ -32,6 +33,7 @@ class Keyword(Cipher):
             else:
                 output.append(key[index])
         return "".join(output)
+
 
     def decrypt(self, text, secret_key):
         """Takes text and secret_key and decrypts text"""
